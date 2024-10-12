@@ -43,7 +43,23 @@ const LessonController = {
         catch(err){
             console.log(err)
         }
+    },
+
+    GetOneLessonData: async(req, res) => {
+        try{
+            const LessonID = req.params.LessonId
+
+            // console.log(LessonID)
+
+            const GetLessonData = await Lesson.findById(LessonID)
+
+            return res.json({ Result: GetLessonData })
+        }
+        catch(err){
+            console.log(err)
+        }
     }
+
 };
 
 const extractLessons = (pdfText) => {
