@@ -17,6 +17,17 @@ const LessonController = {
         catch(err){
             console.log(err)
         }
+    },
+
+    GetAllLessons: async(req, res) => {
+        try{
+            const allLessons = await Lesson.find()
+
+            return res.json({ Result: allLessons })
+        }
+        catch(err){
+            console.log(err)
+        }
     }
 };
 
