@@ -28,6 +28,21 @@ const LessonController = {
         catch(err){
             console.log(err)
         }
+    },
+
+    GetOneLesson: async(req, res ) => {
+        try{
+            const LessonID = req.params.LessonId
+
+            // console.log(LessonID)
+
+            const FindOneLesson = await Lesson.findById(LessonID)
+
+            return res.json({ Result: FindOneLesson })
+        }
+        catch(err){
+            console.log(err)
+        }
     }
 };
 
