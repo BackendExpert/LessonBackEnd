@@ -1,10 +1,12 @@
 const Lesson = require("../model/Lesson");
+const pdfParse = require('pdf-parse');
 
 const LessonController = {
     CreateLesson: async(req, res) => {
         try{
             const pdfBuffer = req.file.buffer;
             // console.log(pdfBuffer)
+            const data = await pdfParse(pdfBuffer);
 
             const lessons = extractLessons(data.text);
 
